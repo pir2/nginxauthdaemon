@@ -70,7 +70,13 @@ Crowd authenticator has additional options:
 | CROWD_APP_PASSWORD | Crowd application password                                |
 +--------------------+-----------------------------------------------------------+
 
+privacyidea authenticator has additional options:
 
++--------------------+-----------------------------------------------------------+
+| Option             | Description                                               |
++====================+===========================================================+
+| PI_URL             | privacyidea server URL, for ex ``http://localhost:5000``  |
++--------------------+-----------------------------------------------------------+
 
 NGINX Configuration
 -------------------
@@ -94,6 +100,7 @@ Example configuration::
     location = /auth/login {
         proxy_pass http://auth-backend;
         proxy_set_header X-Target $request_uri;
+        proxy_set_header Host $host;
     }
 
     # Protected application
