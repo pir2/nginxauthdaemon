@@ -25,5 +25,7 @@ class PIAuthenticator(Authenticator):
         if result == None:
             # auth failed
             return False
+        elif "value" not in result["result"]:
+            return False
         # auth succeeded
         return result["result"]["value"]
